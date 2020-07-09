@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body style="padding: 5%">
+<div class="containe-fluid">
+
+	<div class="col-md-6">
+		<center>Hit Command</center>
+		<form method="post">
+			{% csrf_token %}
+		  <div class="form-group">
+		    <label for="Server">Server</label>
+		    <input name="server" value="{{server}}" type="text" class="form-control" id="Server" placeholder="Enter Server IP" required>
+		  </div>
+		  <div class="form-group">
+		    <label for="Username">Username</label>
+		    <input name="username" type="text" value="{{username}}" class="form-control" id="Username" placeholder="Enter Server Username" required>
+		  </div>
+		  <div class="form-group">
+		    <label for="Password">Password</label>
+		    <input name="password" value="{{password}}" type="password" class="form-control" id="Password" placeholder="Enter Server Password" required>
+		  </div>
+		  <div class="form-group">
+		    <label for="Port">Port</label>
+		    <input name="port" value="{{port}}" type="text" class="form-control" id="Port" placeholder="Enter Server Password" required>
+		  </div>
+
+		 
+		  <div class="form-group">
+		    <label for="command">Select Command</label>
+		    <select name="command" value="{{command}}" class="form-control" id="command">
+		      <option>pwd</option>
+		      <option>ls</option>
+		      <option>df</option>
+		      <option>ifconfig</option>
+		    </select>
+		  </div>
+
+		  <button type="submit" class="btn btn-primary">Submit</button>
+
+		  </div>
+	    </form>
+	</div>
+
+	<div class="col-md-6">
+		<center>Shell Output</center>
+		<div style="padding-top: 4%; overflow: auto; max-height: 400px">
+			<pre>{{shell_output}}</pre>
+		</div>
+		
+	</div>
+</div>
+</body>
+</html>
